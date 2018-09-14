@@ -9,21 +9,17 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV KIBANA_VERSION kibana-4.1.1
+ENV KIBANA_VERSION 6.3.2
 
-# Update & install packages for graylog
+# Update & install packages for kibana
 RUN apt-get update && \
-    apt-get install -y wget dpkg-dev openjdk-7-jre
-RUN wget https://download.elastic.co/kibana/kibana/${KIBANA_VERSION}-linux-x64.tar.gz  && \
-    mkdir -p /opt/kibana && \
-    tar -xz --strip-components=1 -C /opt/kibana -f ${KIBANA_VERSION}-linux-x64.tar.gz
+    apt-get install -y wget dpkg-dev openjdk-8-jre
 
-#Configure graylog
-ADD kibana.yml /opt/kibana/config/
+RUN wget https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-amd64.deb && \
+    dpkg -i kibana-${KIBANA_VERSION}-amd64.deb
 
-#Add link for binary
-RUN ln -s /opt/kibana/bin/kibana /usr/bin/kibana
+COPY kibana.yml /etc/kibana/
 
 EXPOSE 5601
 
-CMD ["kibana"]
+CMD ["/usr/share/kibana/bin/kibana"]
