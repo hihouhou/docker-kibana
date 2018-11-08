@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV KIBANA_VERSION v6.4.3
+ENV KIBANA_VERSION 6.4.3
 
 # Update & install packages for kibana
 RUN apt-get update && \
