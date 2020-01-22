@@ -13,7 +13,7 @@ ENV KIBANA_VERSION 7.5.2
 
 # Update & install packages for kibana
 RUN apt-get update && \
-    apt-get install -y wget dpkg-dev openjdk-8-jre
+    apt-get install -y wget dpkg-dev openjdk-11-jre
 
 RUN wget https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-amd64.deb && \
     dpkg -i kibana-${KIBANA_VERSION}-amd64.deb
