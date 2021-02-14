@@ -20,6 +20,8 @@ RUN wget https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-
 
 COPY kibana.yml /etc/kibana/
 
+USER kibana
+
 EXPOSE 5601
 
-CMD ["/usr/share/kibana/bin/kibana"]
+CMD ["/usr/share/kibana/bin/kibana", "-c", "/etc/kibana/kibana.yml"]
