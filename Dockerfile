@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV KIBANA_VERSION 8.5.2
+ENV KIBANA_VERSION 7.17.8
 
 # Update & install packages for kibana
 RUN apt-get update && \
