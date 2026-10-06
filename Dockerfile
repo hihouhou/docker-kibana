@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV KIBANA_VERSION=v9.5.3
+ENV KIBANA_VERSION=v9.5.5
 
 # Update & install packages for kibana
 RUN apt-get update && \
